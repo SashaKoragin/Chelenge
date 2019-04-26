@@ -15,6 +15,10 @@ namespace TestChelenje
         public Form1()
         {
             InitializeComponent();
+           // comboBox2.DrawMode = DrawMode.OwnerDrawFixed;
+          // comboBox2.ItemHeight = 100;
+            comboBox2.Controls.Add(new Control() {Controls = { new Button() { Height = 19, Width = 50, Text = "sdsd"} } });
+         //   comboBox2.Refresh();
         }
 
         private int[] bases = {3, 6, 7, 9, 13, 18, 20};
@@ -69,6 +73,19 @@ namespace TestChelenje
                 }
             }
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void www(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int) Keys.Enter)
+            {
+                MessageBox.Show("нажали Етек");
+            }
         }
     }
 }
