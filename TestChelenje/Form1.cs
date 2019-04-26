@@ -17,22 +17,23 @@ namespace TestChelenje
             InitializeComponent();
         }
 
-        private int[] bases = { 3,6,7,9,13,18,20 };
+        private int[] bases = {3, 6, 7, 9, 13, 18, 20};
 
-        private int[] spliters = { 1,4,9,15};
+        private int[] spliters = {1, 4, 9, 15};
 
         private int[] mass;
         private List<int[]> result = new List<int[]>();
 
-        private List<List<int>> List =new List<List<int>>();
+        private List<List<int>> List = new List<List<int>>();
         private List<int> Contener = new List<int>();
+
         private void Челендж_Click(object sender, EventArgs e)
         {
             var border_basese = 0;
             for (int i = 0; i < spliters.Length; i++)
             {
 
-                mass = bases.Where(val => val<= spliters[i]&&val> border_basese).ToArray();
+                mass = bases.Where(val => val <= spliters[i] && val > border_basese).ToArray();
                 border_basese = spliters[i];
                 if (mass.Length > 0)
                 {
@@ -40,13 +41,34 @@ namespace TestChelenje
                     mass = null;
                 }
                 //Обработка остатков если есть
-                if (spliters.Max() == spliters[i] && bases.Max()> border_basese)
+                if (spliters.Max() == spliters[i] && bases.Max() > border_basese)
                 {
                     mass = bases.Where(val => val > border_basese).ToArray();
                     result.Add(mass);
                 }
             }
             var е = result;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран элемент!!!");
+            }
+            else
+            {
+                if (comboBox2.Items.Contains(comboBox1.SelectedItem))
+                {
+                    MessageBox.Show("Не можем добавить т к элемент уже есть он есть");
+                }
+                else
+                {
+                    comboBox2.Items.Add(comboBox1.SelectedItem);
+                    
+                }
+            }
+
         }
     }
 }
