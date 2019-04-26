@@ -86,6 +86,11 @@ namespace TestChelenje
             {
                 MessageBox.Show("нажали Етек");
             }
+            if (e.KeyChar == (int)Keys.Back)
+            {
+                var t = (ComboBox) sender;
+                t.Items.Remove(t.SelectedItem);
+            }
         }
     }
 }
